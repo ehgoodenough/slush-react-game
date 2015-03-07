@@ -16,23 +16,19 @@ gulp.task("default", function(done) {
         },
         {
             type: "confirm",
-            name: "continuing",
-            message: "Continue?"
+            name: "confirmed",
+            message: "Confirm?"
         }
-    ],
-    function(inquiries) {
-        if(!inquiries.continuing) {
-            return done()
+    ], function(answers) {
+        if(answers.confirmed) {
+            gulp.src(path.join(__dirname, "./template/**/*"))
+                .pipe(gulp_template(answers))
+                .pipe(gulp_conflict(__dirname + "/temp"))
+                .pipe(gulp.dest(__dirname + "/temp"))
+                .pipe(gulp_install())
+        } else {
+            done()
         }
-        gulp.src(path.join(__dirname, "./templates/**/*"))
-            .pipe(gulp_template(inquiries))
-            .pipe(gulp_conflict("./"))
-            .pipe(gulp.dest("./"))
-            .pipe(gulp_install())
-            .on("end", function() {
-                done()
-            })
-            .resume()
     })
 })
 
