@@ -1,6 +1,6 @@
 {
-  "name": "slush-goodenough",
-  "version": "1.0.0",
+  "name": "slush-react-fun",
+  "version": "0.1.0",
   "main": "slushfile.js",
   "keywords": [
     "slushgenerator"
@@ -12,5 +12,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ehgoodenough/slush-goodenough"
-  } "https://github.com/ehgoodenough/slush-goodenough"
+  },
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-conflict": "^0.3.0",
+    "gulp-install": "^0.2.0",
+    "gulp-template": "^3.0.0",
+    "inquirer": "^0.8.0"
+  }
 }
