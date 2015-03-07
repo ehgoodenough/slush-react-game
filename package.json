@@ -1,0 +1,16 @@
+{
+  "name": "slush-goodenough",
+  "version": "1.0.0",
+  "main": "slushfile.js",
+  "keywords": [
+    "slushgenerator"
+  ],
+  "author": {
+    "name": "Andrew McPherson",
+    "email": "ehgoodenough@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ehgoodenough/slush-goodenough"
+  } "https://github.com/ehgoodenough/slush-goodenough"
+}
