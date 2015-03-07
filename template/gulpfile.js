@@ -11,6 +11,7 @@ var gulp_json_transform = require("gulp-json-transform")
 
 var watchify = require("watchify")
 var browserify = require("browserify")
+var reactify = require("reactify")
 var envify = require("envify/custom")
 var aliasify = require("aliasify")
 
@@ -22,6 +23,7 @@ var vinyl_source = require("vinyl-source-stream")
 
 browserify = browserify(watchify.args)
     .add("./source/index.js")
+    .transform("reactify")
     .transform(envify({
         devmode: yargs.argv.devmode
     }))

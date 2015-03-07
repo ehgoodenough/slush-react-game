@@ -1,5 +1,5 @@
 {
-  "name": "slush-react-fun",
+  "name": "slush-react-game",
   "version": "0.1.0",
   "main": "slushfile.js",
   "keywords": [
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ehgoodenough/slush-react-fun"
+    "url": "https://github.com/ehgoodenough/slush-react-game"
   },
   "dependencies": {
     "gulp": "^3.8.11",

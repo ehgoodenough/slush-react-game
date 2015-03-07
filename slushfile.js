@@ -12,8 +12,8 @@ gulp.task("default", function(done) {
         {
             type: "input",
             name: "name",
-            message: "What is the name of your app?",
-            default: "fun"
+            message: "What is the name of your game?",
+            default: path.basename(process.cwd()) || "game"
         },
         {
             type: "confirm",
