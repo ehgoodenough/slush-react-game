@@ -4,6 +4,7 @@ var gulp_util = require("gulp-util")
 var gulp_sass = require("gulp-sass")
 var gulp_watch = require("gulp-watch")
 var gulp_uglify = require("gulp-uglify")
+var gulp_connect = require("gulp-connect")
 var gulp_minify_css = require("gulp-minify-css")
 var gulp_minify_html = require("gulp-minify-html")
 var gulp_prefixify_css = require("gulp-autoprefixer")
@@ -56,6 +57,7 @@ gulp.task("build:scripts", function() {
         .pipe(vinyl_buffer())
         .pipe(gulp_if(yargs.argv.minify, gulp_uglify()))
         .pipe(gulp.dest("./build"))
+        .pipe(gulp_connect.reload())
 })
 
 gulp.task("build:styles", function() {
@@ -64,6 +66,7 @@ gulp.task("build:styles", function() {
         .pipe(gulp_prefixify_css())
         .pipe(gulp_if(yargs.argv.minify, gulp_minify_css()))
         .pipe(gulp.dest("./build"))
+        .pipe(gulp_connect.reload())
 })
 
 gulp.task("build:markup", function() {
@@ -76,6 +79,7 @@ gulp.task("build:assets", function() {
     del("./build/assets/**/*", function() {
         gulp.src("./source/assets/**/*", {base: "./source"})
             .pipe(gulp.dest("./build"))
+            .pipe(gulp_connect.reload())
     })
 })
 
@@ -113,6 +117,14 @@ gulp.task("watch:assets", function() {
     gulp.start("build:assets")
     gulp_watch("./source/assets/**/*", function() {
         gulp.start("build:assets")
+    })
+})
+
+gulp.task("serve", function() {
+    gulp.start("watch")
+    gulp_connect.server({
+        root: "./build",
+        livereload: true
     })
 })
 

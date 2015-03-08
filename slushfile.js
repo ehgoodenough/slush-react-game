@@ -12,14 +12,20 @@ gulp.task("default", function(done) {
         {
             type: "input",
             name: "name",
-            message: "What is the name of your game?",
+            message: "Name:",
             default: path.basename(process.cwd()) || "game"
         },
         {
             type: "input",
             name: "description",
-            message: "How would you describe your game?",
-            default: "A game that was developed in React"
+            message: "Description:",
+            default: "An awesome game."
+        },
+        {
+            type: "input",
+            name: "version",
+            message: "Version:",
+            default: "0.0.0"
         },
         {
             type: "confirm",
