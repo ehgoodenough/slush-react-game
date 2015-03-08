@@ -16,6 +16,7 @@ var reactify = require("reactify")
 var envify = require("envify/custom")
 var aliasify = require("aliasify")
 
+var opn = require("opn")
 var del = require("del")
 var chalk = require("chalk")
 var yargs = require("yargs")
@@ -119,10 +120,17 @@ gulp.task("watch:assets", function() {
 })
 
 gulp.task("serve", function() {
-    gulp.start("watch")
-    gulp_connect.server({
-        root: "./build",
-        livereload: true
+    gulp.start("watch", function() {
+        var HOST = "http://localhost"
+        var PORT = 8080
+        var ROOT = __dirname + "/build"
+        gulp_connect.server({
+            livereload: true,
+            host: HOST,
+            port: PORT,
+            root: ROOT
+        })
+        opn(HOST + ":" + PORT)
     })
 })
 
