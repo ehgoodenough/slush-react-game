@@ -25,7 +25,7 @@ gulp.task("default", function(done) {
             gulp.src(path.join(__dirname, "./template/**/*"))
                 .pipe(gulp_template(answers))
                 .pipe(gulp_rename(function(file) {
-                    if(file.basename.charAt(0) === "_") {
+                    if(file.basename.charAt(0) === "!") {
                         file.basename = "." + file.basename.slice(1)
                     }
                 }))
