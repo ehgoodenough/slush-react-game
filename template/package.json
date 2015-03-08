@@ -1,6 +1,7 @@
 {
   "name": "<%= name %>",
   "version": "0.0.0",
+  "description": "<%= description %>",
   "dependencies": {
     "react": "^0.12.2",
     "reflux": "^0.2.6"

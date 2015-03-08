@@ -1,8 +1,8 @@
 var gulp = require("gulp")
-var gulp_install = require("gulp-install")
-var gulp_conflict = require("gulp-conflict")
-var gulp_template = require("gulp-template")
 var gulp_rename = require("gulp-rename")
+var gulp_install = require("gulp-install")
+var gulp_template = require("gulp-template")
+var gulp_conflict = require("gulp-conflict")
 
 var path = require("path")
 var inquirer = require("inquirer")
@@ -14,6 +14,12 @@ gulp.task("default", function(done) {
             name: "name",
             message: "What is the name of your game?",
             default: path.basename(process.cwd()) || "game"
+        },
+        {
+            type: "input",
+            name: "description",
+            message: "How would you describe your game?",
+            default: "A game that was developed in React"
         },
         {
             type: "confirm",
