@@ -59,8 +59,8 @@ gulp.task("default", function(done) {
                         file.basename = "." + file.basename.slice(1)
                     }
                 }))
-                .pipe(gulp_conflict(__dirname + "/temp"))
-                .pipe(gulp.dest(__dirname + "/temp"))
+                .pipe(gulp_conflict(__dirname))
+                .pipe(gulp.dest(__dirname ))
                 .pipe(gulp_install())
             if(answers.repository) {
                 async.series([
@@ -73,5 +73,3 @@ gulp.task("default", function(done) {
         }
     })
 })
-
-gulp.start("default")
