@@ -5,27 +5,45 @@ var gulp_template = require("gulp-template")
 var gulp_conflict = require("gulp-conflict")
 
 var path = require("path")
+var async = require("async")
 var inquirer = require("inquirer")
+var exec = require("child_process").exec;
 
 gulp.task("default", function(done) {
     inquirer.prompt([
         {
             type: "input",
             name: "name",
-            message: "Name:",
+            message: "Project Name?",
             default: path.basename(process.cwd()) || "game"
         },
         {
             type: "input",
             name: "description",
-            message: "Description:",
+            message: "Project Description?",
             default: "An awesome game."
         },
         {
             type: "input",
             name: "version",
-            message: "Version:",
+            message: "Initial Version?",
             default: "0.0.0"
+        },
+        {
+            type: "input",
+            name: "repository",
+            message: "Git Repository?",
+            validate: function(repository) {
+                if(repository == "") {
+                    return true
+                } else {
+                    if(repository/*is valid*/) {
+                        return true
+                    } else {
+                        return false
+                    }
+                }
+            }
         },
         {
             type: "confirm",
@@ -44,6 +62,12 @@ gulp.task("default", function(done) {
                 .pipe(gulp_conflict(__dirname + "/temp"))
                 .pipe(gulp.dest(__dirname + "/temp"))
                 .pipe(gulp_install())
+            if(answers.repository) {
+                async.series([
+                    exec.bind(null, "git init"),
+                    exec.bind(null, "git remote add origin " + answers.repository)
+                ])
+            }
         } else {
             done()
         }

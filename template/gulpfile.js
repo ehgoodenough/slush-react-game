@@ -76,11 +76,9 @@ gulp.task("build:markup", function() {
 })
 
 gulp.task("build:assets", function() {
-    del("./build/assets/**/*", function() {
-        gulp.src("./source/assets/**/*", {base: "./source"})
-            .pipe(gulp.dest("./build"))
-            .pipe(gulp_connect.reload())
-    })
+    gulp.src("./source/assets/**/*", {base: "./source"})
+        .pipe(gulp.dest("./build"))
+        .pipe(gulp_connect.reload())
 })
 
 gulp.task("watch", function() {
