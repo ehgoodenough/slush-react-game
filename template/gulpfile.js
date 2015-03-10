@@ -119,19 +119,15 @@ gulp.task("watch:assets", function() {
     })
 })
 
-gulp.task("serve", function() {
-    gulp.start("watch", function() {
-        var HOST = "http://localhost"
-        var PORT = 8080
-        var ROOT = __dirname + "/build"
-        gulp_connect.server({
-            livereload: true,
-            host: HOST,
-            port: PORT,
-            root: ROOT
-        })
-        opn(HOST + ":" + PORT)
+gulp.task("server", function() {
+    gulp.start("watch")
+    gulp_connect.server({
+        root: __dirname + "/build",
+        livereload: true,
+        port: 8080
     })
+    opn("http://localhost:8080")
+
 })
 
 process.on("uncaughtException", function (error) {
