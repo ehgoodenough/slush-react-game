@@ -40,7 +40,7 @@ browserify = browserify(watchify.args)
     }))
 
 gulp.task("default", function() {
-    gulp.start(["build"])
+    gulp.start("build")
 })
 
 gulp.task("build", function() {
