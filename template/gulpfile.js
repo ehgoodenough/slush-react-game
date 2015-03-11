@@ -127,7 +127,6 @@ gulp.task("server", function() {
         port: 8080
     })
     opn("http://localhost:8080")
-
 })
 
 process.on("uncaughtException", function (error) {
