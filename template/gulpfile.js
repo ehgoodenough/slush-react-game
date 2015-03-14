@@ -131,4 +131,5 @@ gulp.task("server", function() {
 
 process.on("uncaughtException", function (error) {
     console.log(chalk.red(error))
+    gulp_util.beep()
 })
