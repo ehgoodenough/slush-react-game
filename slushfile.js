@@ -5,9 +5,7 @@ var gulp_template = require("gulp-template")
 var gulp_conflict = require("gulp-conflict")
 
 var path = require("path")
-var async = require("async")
 var inquirer = require("inquirer")
-var exec = require("child_process").exec
 
 gulp.task("default", function(done) {
     inquirer.prompt([
@@ -62,13 +60,6 @@ gulp.task("default", function(done) {
                 .pipe(gulp_conflict(process.cwd()))
                 .pipe(gulp.dest(process.cwd()))
                 .pipe(gulp_install())
-            if(answers.repository) {
-                async.series([
-                    exec.bind(null, "cd " + process.cwd()),
-                    exec.bind(null, "git init"),
-                    exec.bind(null, "git remote add origin " + answers.repository)
-                ])
-            }
         } else {
             done()
         }

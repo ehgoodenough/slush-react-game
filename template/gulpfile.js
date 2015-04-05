@@ -2,7 +2,6 @@ var gulp = require("gulp")
 var gulp_if = require("gulp-if")
 var gulp_util = require("gulp-util")
 var gulp_sass = require("gulp-sass")
-var gulp_watch = require("gulp-watch")
 var gulp_uglify = require("gulp-uglify")
 var gulp_connect = require("gulp-connect")
 var gulp_minify_css = require("gulp-minify-css")
@@ -100,21 +99,21 @@ gulp.task("watch:scripts", function() {
 
 gulp.task("watch:styles", function() {
     gulp.start("build:styles")
-    gulp_watch("./source/**/*.scss", function() {
+    gulp.watch("./source/**/*.scss", function() {
         gulp.start("build:styles")
     })
 })
 
 gulp.task("watch:markup", function() {
     gulp.start("build:markup")
-    gulp_watch("./source/**/*.html", function() {
+    gulp.watch("./source/**/*.html", function() {
         gulp.start("build:markup")
     })
 })
 
 gulp.task("watch:assets", function() {
     gulp.start("build:assets")
-    gulp_watch("./source/assets/**/*", function() {
+    gulp.watch("./source/assets/**/*", function() {
         gulp.start("build:assets")
     })
 })
