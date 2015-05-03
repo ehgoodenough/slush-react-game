@@ -1,10 +1,10 @@
 {
-  "name": "react-game",
-  "version": "0.0.0",
-  "description": "An awesome game.",
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "description": "<%= description %>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ehgoodenough/slush-react-game"
+    "url": "<%= repository %>"
   },
   "dependencies": {
     "react": "~0.12.2"
