@@ -1,6 +1,6 @@
 {
   "name": "slush-react-game",
-  "version": "0.1.5",
+  "version": "1.0.0",
   "description": "A slush generator for building games in react.",
   "keywords": [
     "slushgenerator"
