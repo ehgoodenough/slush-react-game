@@ -1,15 +1,14 @@
 @import "./styles/Fonts.scss";
-@import "./styles/Colors.scss";
 @import "./styles/Defaults.scss";
 @import "./styles/GameFrame.scss";
 
 html
 {
     font-family: goldfish;
-    background-color: $black;
+    background-color: #111;
 
     #game-frame
     {
-    	background-color: $white;
+    	background-color: #eee;
     }
 }
