@@ -1,4 +1,4 @@
-var GameFrame = React.createClass({
+var FrameView = React.createClass({
     getDefaultProps: function() {
         return {
             "aspect-ratio": "4x3"
@@ -6,10 +6,10 @@ var GameFrame = React.createClass({
     },
     render: function() {
         return (
-            <div id="game-frame" {...this.props}
+            <div id="frame-view" {...this.props}
                 className={"_" + this.props["aspect-ratio"]}/>
         )
     }
 })
 
-module.exports = GameFrame
+module.exports = FrameView

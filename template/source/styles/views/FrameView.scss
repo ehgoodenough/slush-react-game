@@ -1,4 +1,4 @@
-#game-frame
+#frame-view
 {
     top: 0rem;
     left: 0rem;
@@ -9,11 +9,11 @@
     overflow: hidden;
 }
 
-@mixin game-frame-aspect-ratio($awidth, $aheight, $twidth, $theight)
+@mixin frame-view-aspect-ratio($awidth, $aheight, $twidth, $theight)
 {
     @media(min-aspect-ratio: #{$awidth + "/" + $aheight})
     {
-        #game-frame._#{$awidth + "x" + $aheight}
+        #frame-view._#{$awidth + "x" + $aheight}
         {
             height: 100vh;
             width: ($awidth/$aheight)*100vh;
@@ -23,7 +23,7 @@
 
     @media(max-aspect-ratio: #{$awidth + "/" + $aheight})
     {
-        #game-frame._#{$awidth + "x" + $aheight}
+        #frame-view._#{$awidth + "x" + $aheight}
         {
             width: 100vw;
             height: ($aheight/$awidth)*100vw;
@@ -32,8 +32,8 @@
     }
 }
 
-@include game-frame-aspect-ratio(16, 9, 16, 9);
-@include game-frame-aspect-ratio(2, 3, 10, 15);
-@include game-frame-aspect-ratio(3, 2, 15, 10);
-@include game-frame-aspect-ratio(3, 4, 15, 20);
-@include game-frame-aspect-ratio(4, 3, 20, 15);
+@include frame-view-aspect-ratio(16, 9, 16, 9);
+@include frame-view-aspect-ratio(2, 3, 10, 15);
+@include frame-view-aspect-ratio(3, 2, 15, 10);
+@include frame-view-aspect-ratio(3, 4, 15, 20);
+@include frame-view-aspect-ratio(4, 3, 20, 15);

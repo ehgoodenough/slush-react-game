@@ -1,13 +1,13 @@
 @import "./styles/Fonts.scss";
 @import "./styles/Defaults.scss";
-@import "./styles/GameFrame.scss";
+@import "./styles/views/FrameView.scss";
 
 html
 {
     font-family: goldfish;
     background-color: #111;
 
-    #game-frame
+    #frame-view
     {
     	background-color: #eee;
     }

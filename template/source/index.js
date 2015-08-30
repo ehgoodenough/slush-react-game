@@ -1,4 +1,16 @@
 window.React = require("react")
+window.Phlux = require("phlux")
 
-var Game = require("<scripts>/components/Game")
-React.render(<Game/>, document.body)
+var FrameView = require("<scripts>/views/FrameView")
+
+var GameView = React.createClass({
+    render: function() {
+        return (
+            <FrameView>
+                Hello World!!
+            </FrameView>
+        )
+    }
+})
+
+React.render(<GameView/>, document.body)
